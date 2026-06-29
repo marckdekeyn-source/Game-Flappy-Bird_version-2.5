@@ -1,0 +1,21 @@
+# === Python System Trash ===
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# === Local Game Progress & Save Data ===
+# Mencegah progres skor pribadi atau setelan lokal ter-push
+save/
+*.json
+
+# === IDE & OS Metadata ===
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# === Virtual Environment (Jika ada) ===
+venv/
+.venv/
+env/
