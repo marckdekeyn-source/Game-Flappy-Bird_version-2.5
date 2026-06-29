@@ -5,42 +5,324 @@
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20OOP-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## 📌 Asal-Usul Proyek & Rekayasa Ulang (Project History)
-Proyek ini merupakan **arsitektur ulang berskala besar (Total Refactoring)** dari basis kode monolitik awal yang berada di repositori resmi **[LaOdhe16/Projek-Game-Flappy-Bird](https://github.com/LaOdhe16/Projek-Game-Flappy-Bird)**. 
+---
 
-Pada versi lawas (`v1.0/app.py`), seluruh logika permainan, data, *rendering*, dan audio digabungkan dalam satu berkas tunggal (*Spaghetti Code*). Versi **v2.5** ini dibangun kembali secara mandiri dari dasar (*from scratch*) untuk menerapkan pemisahan tugas modular yang ketat sesuai dengan standar industri pengembangan perangkat lunak.
+# 📌 Project History
+
+This project is a **large-scale architecture refactor (Total Refactoring)** of the original monolithic codebase from the official repository:
+
+> https://github.com/LaOdhe16/Projek-Game-Flappy-Bird
+
+The original version (`v1.0/app.py`) contained all game logic, rendering, audio, UI, and data management inside a single file, making it difficult to maintain and extend.
+
+Version **v2.5** has been completely rebuilt **from scratch** with a modular architecture following **Object-Oriented Programming (OOP)** principles and modern software engineering practices.
 
 ---
 
-## ✨ Fitur Utama (Core Features)
+# ✨ Core Features
 
-* **Sistem Koleksi Skin Burung:** Mekanik kustomisasi karakter yang mendukung pergantian skin secara *real-time* (Default, Blue, Red, dan Golden Bird dengan efek *glow*).
-* **Parallax Background Engine:** Sistem visual berlapis yang mensimulasikan ilusi kedalaman bergerak (*seamless looping scrolling*) memisahkan awan, gunung, dan tanah.
-* **Sistem Penyimpanan Otomatis (I/O JSON):** Progres skor tertinggi (*high score*), preferensi pengaturan volume, dan statistik permainan tersimpan secara persisten di `save/save.json`.
-* **Dashboard Analitik & Statistik:** Melacak data bermain pemain secara komprehensif (total permainan, pipa yang dilewati, rata-rata skor, hingga kalkulasi waktu bermain).
-* **Sistem Pencapaian (Achievements Unlocker):** Pelacakan *milestone* prestasi otomatis yang terintegrasi dengan animasi *popup banner notification* di dalam game.
-* **Juiciness & Game Feel Effects:** Dilengkapi dengan efek getaran layar (*Screen Shake*) saat terjadi benturan, sistem partikel dinamis (*Particle Burst*) saat melompat atau mendapat poin, serta *drop shadow text*.
-* **Procedural Audio Fallback:** Menggunakan sintesis gelombang audio prosedural (pustaka `math` & `array` bawaan) untuk memastikan game tidak akan *crash* saat inisialisasi awal walaupun file fisik audio absen.
+## 🎨 Bird Skin System
+
+Customize your bird using multiple unlockable skins.
+
+- Default Bird
+- Blue Bird
+- Red Bird
+- Golden Bird (Glow Effect)
+
+Supports **real-time skin switching**.
 
 ---
 
-## 📁 Struktur Modul Proyek (Clean Architecture)
+## 🌄 Parallax Background Engine
+
+A seamless multi-layer scrolling background featuring:
+
+- Clouds
+- Mountains
+- Ground
+
+Creates a smooth illusion of depth.
+
+---
+
+## 💾 Auto Save System
+
+Player progress is automatically stored inside:
+
+```
+save/save.json
+```
+
+Saved data includes:
+
+- High Score
+- Settings
+- Volume
+- Selected Skin
+- Statistics
+
+---
+
+## 📊 Statistics Dashboard
+
+Track your gameplay including:
+
+- Total Games
+- Highest Score
+- Average Score
+- Pipes Passed
+- Total Play Time
+
+---
+
+## 🏆 Achievement System
+
+Automatic achievement tracking with animated popup notifications.
+
+Example achievements:
+
+- First Flight
+- 10 Pipes
+- 25 Pipes
+- 50 Pipes
+- Score Master
+
+---
+
+## ✨ Game Feel Improvements
+
+Extra polish for a better player experience.
+
+Includes:
+
+- Screen Shake
+- Particle Effects
+- Drop Shadow Text
+- Smooth Animations
+
+---
+
+## 🔊 Procedural Audio Fallback
+
+If audio files are missing, the game automatically generates procedural sound using Python's built-in libraries.
+
+No crashes during startup.
+
+---
+
+# 📁 Project Structure
 
 ```text
 Projek-Game-Flappy-Bird/
 │
-├── main.py              # Entry-point / Gerbang utama eksekusi game (Menggantikan app.py lama)
-├── game.py              # Core Game Engine (State Machine Controller)
-├── game_config.py       # Global configuration, data warna, dan resolusi
-├── save_manager.py      # Secure JSON Data File I/O handler
-├── ui.py                # Komponen UI Reusable (Custom Button & Slider)
-├── animation.py         # Particle system & Parallax background controller
-├── skin.py              # Central database palet warna skin karakter
-├── achievement.py       # Logika kalkulasi milestone & popup notification
-├── statistics.py        # Pengolah data statistik dan analitik
-├── bird.py              # Entitas kinematika burung dan logika rotasi
-├── pipe.py              # Entitas rintangan pipa (AABB Collision Box)
+├── main.py              # Main Entry Point
+├── game.py              # Game State Machine
+├── game_config.py       # Global Configuration
+├── save_manager.py      # JSON Save Handler
+├── ui.py                # UI Components
+├── animation.py         # Particle & Background Engine
+├── skin.py              # Skin Database
+├── achievement.py       # Achievement Logic
+├── bird.py              # Bird Entity
+├── pipe.py              # Pipe Entity
 │
-├── assets/              # Tempat penyimpanan aset gambar (.png) & suara (.wav)
+├── assets/
+│   ├── images/
+│   └── sounds/
+│
 └── save/
-    └── save.json        # Berkas data JSON lokal progres bermain pemain
+    └── save.json
+```
+
+---
+
+# ⌨️ Game Controls
+
+| Key | Action |
+|------|--------|
+| **SPACE** | Jump |
+| **ESC** | Pause / Resume |
+| **P** | Pause / Resume |
+| **Mouse Click** | Navigate Menu |
+| **Mouse Drag** | Adjust Volume Slider |
+
+---
+
+# 🛠️ Installation
+
+## Requirements
+
+- Python 3.12+
+- Git
+- Pygame 2.6+
+
+---
+
+## Clone Repository
+
+### HTTPS
+
+```bash
+git clone https://github.com/marckdekeyn-source/Projek-Game-Flappy-Bird.git
+```
+
+### SSH
+
+```bash
+git clone git@github.com:marckdekeyn-source/Projek-Game-Flappy-Bird.git
+```
+
+### GitHub CLI
+
+```bash
+gh repo clone marckdekeyn-source/Projek-Game-Flappy-Bird
+```
+
+---
+
+## Enter Project Directory
+
+```bash
+cd Projek-Game-Flappy-Bird
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pip install pygame
+```
+
+Or install from requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Run the Game
+
+```bash
+python main.py
+```
+
+---
+
+# 📸 Screenshots
+
+## 🏠 Main Menu
+<img width="852" height="747" alt="image" src="https://github.com/user-attachments/assets/bf7b8ee9-03e6-4b80-9f09-e6d461265426" />
+
+
+
+Modern main menu featuring quick access to Play, Statistics, Achievements, Bird Collection, and Settings.
+```
+
+---
+
+## 🎮 Gameplay
+
+<img width="1581" height="893" alt="Screenshot 2026-06-29 171053" src="https://github.com/user-attachments/assets/f5c76146-89dc-4b3e-ae59-e681d141fc01" />
+
+
+Smooth gameplay powered by the Parallax Background Engine, particle effects, bird rotation, and improved collision detection.
+
+```
+
+---
+
+## 📊 Statistics Dashboard
+<img width="1367" height="622" alt="image" src="https://github.com/user-attachments/assets/ad2062bb-aa55-4947-a0e4-d0d2c8901266" />
+
+Track your progress throughout every game session.
+
+Statistics include:
+
+- Highest Score
+- Average Score
+- Games Played
+- Pipes Passed
+- Total Play Time
+
+## Settings
+
+<img width="1112" height="625" alt="image" src="https://github.com/user-attachments/assets/a3c2edbb-323e-4382-9bc6-7ec0fde95dd8" />
+
+
+# 🚀 Roadmap
+
+- [ ] Moving Pipes
+- [ ] Vertical Pipes
+- [ ] Local Multiplayer
+- [ ] Online Leaderboard
+- [ ] Cloud Save
+- [ ] Daily Challenges
+- [ ] Controller Support
+- [ ] Fullscreen Mode
+- [ ] More Bird Skins
+- [ ] Seasonal Themes
+- [ ] New Soundtracks
+
+---
+
+# 👨‍💻 Contributors
+
+## Original Project
+
+**LaOdhe16**
+
+Project Owner & Lead Developer
+
+Original Flappy Bird Version (v1.0)
+
+---
+
+## Refactored Version
+
+**marckdekeyn-source**
+
+Core Contributor
+
+Software Architect
+
+Object-Oriented Refactoring
+
+UI/UX Improvements
+
+Gameplay Enhancements
+
+Version 2.5
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+Feel free to:
+
+- Use
+- Modify
+- Learn from
+- Fork
+- Build your own version
+
+for educational and portfolio purposes.
+
+---
+
+# ⭐ Support
+
+If you enjoy this project, consider giving it a **⭐ Star** on GitHub.
+
+It helps the project reach more developers and motivates future improvements.
+
+---
+
+## ❤️ Thanks for Playing!
+
+Happy Coding and Have Fun!
+```
