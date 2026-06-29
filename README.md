@@ -214,12 +214,10 @@ python main.py
 # 📸 Screenshots
 
 ## 🏠 Main Menu
-<img width="852" height="747" alt="image" src="https://github.com/user-attachments/assets/bf7b8ee9-03e6-4b80-9f09-e6d461265426" />
-
+<img width="853" height="747" alt="Screenshot 2026-06-29 172236" src="https://github.com/user-attachments/assets/d1cf5628-7fde-4f16-8bbe-faa35cc8b027" />
 
 
 Modern main menu featuring quick access to Play, Statistics, Achievements, Bird Collection, and Settings.
-```
 
 ---
 
